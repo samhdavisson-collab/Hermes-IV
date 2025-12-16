@@ -42,10 +42,10 @@ def find_files(d, t):
                 found.append(key)
     return found
 
-print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}}, "2.3", str))
-print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}}, "2.3", dict))
-print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}, "50":{"1000":"676767", "200":{"greetings":"hi", "salutations":"hello"}}}, "200", str))
-print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}, "50":{"1000":"676767", "200":{"greetings":"hi", "salutations":"hello"}}}, "50", dict))
+#print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}}, "2.3", str))
+#print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}}, "2.3", dict))
+#print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}, "50":{"1000":"676767", "200":{"greetings":"hi", "salutations":"hello"}}}, "200", str))
+#print(iterate_nested_dict({"0":{"1":"hi", "2":"hello", "2.3":{"1": "wassup", "2": "'sup"}, "3":{"3.1":"hi", "3.2":"hello"}}, "50":{"1000":"676767", "200":{"greetings":"hi", "salutations":"hello"}}}, "50", dict))
 
 img1 = pygame.transform.scale_by(pygame.image.load("cuts/image_part_001.jpg"), 0.5)
 img2 = pygame.transform.scale_by(pygame.image.load("cuts/image_part_002.jpg"), 0.5)
@@ -131,7 +131,7 @@ for i in range(random.randint(4, 12)):
         scrambled += word[letter]
         letters.append(letter)
     badwordsinthis.append(scrambled + ".txt")
-print(badwordsinthis)
+#print(badwordsinthis)
 
 word = goodwords[random.randint(0, len(goodwords)-1)]
 letter = 0
@@ -143,7 +143,8 @@ for i in range(len(word)):
     goodword += word[letter]
     letters.append(letter)
 goodword = goodword + ".txt"
-print(goodword)
+#print(goodword)
+
 
 crsabmlde = {}
 for i in range(random.randint(2, len(badwordsinthis) - 2), 0, -1):
@@ -154,12 +155,12 @@ for i in range(len(badwordsinthis) - 1, 0, -1):
     crsabmlde[badwordsinthis[i]] = "§"
     del badwordsinthis[i]
 
-print(crsabmlde)
-print(badwordsinthis)
+#print(crsabmlde)
+#print(badwordsinthis)
 # downloads = {"B1.txt":"§", "B2.txt":"§", "B3.txt":"§", "B4.txt":"§", "B5.txt":"§", "B6.txt":"§", "B7.txt":"§", "B8.txt":"§", "89.txt":"input daaeeiancad to continue", "B10.txt":"§", "B11.txt":"§", "B12.txt":"§", "B13.txt":"§", "B14.txt":"§", "B15.txt":"§"}
 # crsabmlde = {"dab.txt":"§", "dba.txt":"§", "raegt.txt":"input " + seq3 + " to continue", "veli.txt":"§", "roilrebh.txt":"§"}
 
-puzzle2len = random.randint(40, 80)
+puzzle2len = random.randint(40, 60)
 puzzle2firstpartlen = random.randint(5, 20)
 downloads = {"B"+str(i)+".txt":"§" for i in range(puzzle2firstpartlen)}
 
@@ -167,7 +168,7 @@ downloads["8"+str(puzzle2firstpartlen)+".txt"] = "input " + seq2 + " to continue
 
 for i in range(puzzle2firstpartlen + 1, puzzle2len):
     downloads["B"+str(i)+".txt"] = "§"
-print(downloads)
+#print(downloads)
 
 puzzle4 = str(random.randint(1, 3))
 startup_txt = puzzle4 + "~"
@@ -187,7 +188,7 @@ for i in range(random.randint(3, 5)):
         puzzle4 += puzzle4old[oldj]
         #j += 1
     startup_txt += puzzle4 + "~"
-print(startup_txt)
+#print(startup_txt)
 startup_files = {"README.txt":startup_txt+"~Find the pattern, then select the next one in \"options\""}
 startup_dirs = ["options"]
 startup_options = {}
@@ -215,15 +216,15 @@ for j in range(random.randint(1, 3)):
     startup_options[i+".txt"] = "§"
 startup_values = startup_files
 startup_values["options"] = startup_options
-print(startup_values)
+#print(startup_values)
 
 filetree = {}
 filetree["~"] = startfiles
-print(filetree)
+#print(filetree)
 files = iterate_nested_dict(filetree, directory, str)
 directories = iterate_nested_dict(filetree, directory, dict)
-print(files)
-print(directories)
+#print(files)
+#print(directories)
 
 helped = False
 asked = False
@@ -231,7 +232,7 @@ num1, num2 = 0, 0
 todo = ""
 solved1, solved2, solved3, solved4 = False, False, False, False
 
-print(seq1)
+#print(seq1)
 
 text = ["01/01 08:00: Successful launch", "01/02 08:00: Food days remaining: 30,", "             all systems correct",
         "01/02 08:00: Food days remaining: 29, ", "             all systems correct",
@@ -272,7 +273,7 @@ pygame.display.set_caption("Hermes IV: Main Terminal")
 stopped = False
 lost = 0
 
-print(seq1, seq2, seq3, seq4)
+#print(seq1, seq2, seq3, seq4)
 
 while not stopped:
     screen.fill("black")
@@ -415,7 +416,7 @@ while not stopped:
             #     files = startup_options
             files = iterate_nested_dict(filetree, directory, str)
             directories = iterate_nested_dict(filetree, directory, dict)
-            print(files)
+            #print(files)
         elif mytext[0:5] == "open ":
             if mytext[5:len(mytext)] == "startup_diagram.png" and directory == "~":
                 if solved1:
@@ -526,7 +527,7 @@ while not stopped:
                 loading = ""
                 startdirs.append("startup_values")
                 filetree["~"]["startup_values"] = startup_values
-                print(filetree)
+                #print(filetree)
                 files = iterate_nested_dict(filetree, directory, str)
                 directories = iterate_nested_dict(filetree, directory, dict)
                 for b in range(30):
@@ -585,8 +586,8 @@ while not stopped:
                     time.sleep(0.25)
                 text.append("Fourth quadrant decoded successfully")
                 text.append("All quadrants decoded successfully!")
-                text.append("Input startup command to continue.")
-                text.append("Startup command can be found in \"startup_diagram.png\"")
+                text.append("Stopping Main Terminal view software.")
+                stopped = True
         elif mytext == "logs":
             text.append("01/01 08:00: Successful launch")
             text.append("01/02 08:00: Food days remaining: 30,")
@@ -676,4 +677,40 @@ if lost == 1:
         # static.set_alpha(i)
         static = pygame.transform.rotate(static, 90)
         screen.blit(static, (0-random.randint(0, 50), 0-random.randint(0, 50)))
+        pygame.display.update()
+else:
+    text = ["01/04 15:02: All quadrants decoded successfully", "01/04 15:04: Initialization sequence entered",
+            "01/04 15:05: Engine online, all systems go", "01/04 15:06: Course set to: original destination: ",
+            "                           Proxima Centauri b"]
+    for i in range(len(text)):
+        screen.fill("black")
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+        offset = len(text) - 20
+        for j in range(len(text[0:i]), len(text[0:i]) - 20, -1):
+            if not j < 0:
+                try:
+                    screen.blit(font.render(text[j], True, "green"), (10, (j - 1 - offset) * 30))
+                except:
+                    i = i
+        pygame.display.update()
+        time.sleep(2)
+    time.sleep(3)
+    ship = pygame.transform.scale_by(pygame.image.load("ship.png").convert_alpha(), 0.1)
+    shiprect = ship.get_rect()
+    shipoff = pygame.transform.scale_by(pygame.image.load("shipoff.png").convert_alpha(), 0.09)
+    shipoffrect = shipoff.get_rect(midbottom=(400, 610))
+    bg = pygame.transform.scale_by(pygame.image.load("stars.jpeg"), 2)
+    for i in range(400):
+        screen.blit(bg, (0, 0))
+        screen.blit(shipoff, shipoffrect)
+        clock.tick(120)
+        pygame.display.update()
+    for i in range(620 * 10):
+        screen.blit(bg, (0, 0))
+        shiprect.midbottom = (400, 620 - 5 * (i * i) / 3000)
+        screen.blit(ship, shiprect)
+        clock.tick(120)
         pygame.display.update()
