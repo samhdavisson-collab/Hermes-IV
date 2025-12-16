@@ -385,6 +385,8 @@ while not stopped:
                         t = ""
             text.append(t)
             t = ""
+        elif mytext == "pwd":
+            text.append(directory)
         elif mytext[0:3] == "cd ":
             if mytext[3:len(mytext)] == ".." and directory != "~":
                 directory = pastdirectory
@@ -633,47 +635,45 @@ while not stopped:
     clock.tick(60)
     pygame.display.update()
 
-print(lost)
 static = pygame.transform.scale_by(pygame.image.load("staticnoise.jpg").convert_alpha(), 4)
 pygame.display.set_caption("Hermes IV: Automated Logs")
-print(lost)
 if lost == 1:
     text = ["01/04 15:02: File opened: " + filethatkilled, "01/04 15:03: Unable to close file: " + filethatkilled, "01/04 15:06: code red: " + filethatkilled + " contains malware",
             "01/05 08:00: Unable to close file: " + filethatkilled, "01/06 15:52: " + filethatkilled + " malware reached mainframe", "01/06 16:03: Irreversible damage to mainframe. Abort", "ERR•¶§∞¢¶•º¶§¶§∞∞§¢£¢∞£ABOrt©˙∆©ƒ¥˙∆√ƒ©∆©",
             "∑®´ƒ©∫√©ç†˚©˙…˚˙ERR˙¨∆˙¨¥OR©˙ƒ†¥ƒç®∂çƒ∂ƒƒ", "∆˚˙˚©ƒ©ƒ∆µ˜∫√çƒ≈∂†ƒ˙∆∫˙√∆©çƒ®†∂®ß®†", "n∆˚˙∫¥¥†∂©∆ƒ¥©˙ø¨¶•£™£¢£¶ª•º••ª§¶®∞§ƒƒ©∂√√√√µ√º"]
-for i in range(len(text)):
-    screen.fill("black")
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
-    offset = len(text) - 20
-    for j in range(len(text[0:i]), len(text[0:i]) - 20, -1):
-        if not j < 0:
-            try:
-                screen.blit(font.render(text[j], True, "green"), (10, (j - 1 - offset) * 30))
-            except:
-                i = i
-    pygame.display.update()
-    time.sleep(2)
+    for i in range(len(text)):
+        screen.fill("black")
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+        offset = len(text) - 20
+        for j in range(len(text[0:i]), len(text[0:i]) - 20, -1):
+            if not j < 0:
+                try:
+                    screen.blit(font.render(text[j], True, "green"), (10, (j - 1 - offset) * 30))
+                except:
+                    i = i
+        pygame.display.update()
+        time.sleep(2)
 
-for j in range(0, 260, 1):
-    screen.fill("black")
-    offset = len(text) - 20
-    for i in range(len(text), len(text) - 20, -1):
-        if not i < 0:
-            try:
-                screen.blit(font.render(text[i], True, "green"), (10, (i - 1 - offset) * 30))
-            except:
-                i = i
-    if random.randint(0, j) > 50:
-    # static.set_alpha(i)
+    for j in range(1000):
+        screen.fill("black")
+        offset = len(text) - 20
+        for i in range(len(text), len(text) - 20, -1):
+            if not i < 0:
+                try:
+                    screen.blit(font.render(text[i], True, "green"), (10, (i - 1 - offset) * 30))
+                except:
+                    i = i
+        if random.randint(0, j) > 60:
+        # static.set_alpha(i)
+            static = pygame.transform.rotate(static, 90)
+            screen.blit(static, (0-random.randint(0, 50), 0-random.randint(0, 50)))
+        pygame.display.update()
+    for i in range(100):
+        #if random.randint(0, i) > 50:
+        # static.set_alpha(i)
         static = pygame.transform.rotate(static, 90)
-        screen.blit(static, (0-random.randint(0, 20), 0-random.randint(0, 20)))
-    pygame.display.update()
-for i in range(300):
-    if random.randint(0, i) > 50:
-    # static.set_alpha(i)
-        static = pygame.transform.rotate(static, 90)
-        screen.blit(static, (0-random.randint(0, 20), 0-random.randint(0, 20)))
-    pygame.display.update()
+        screen.blit(static, (0-random.randint(0, 50), 0-random.randint(0, 50)))
+        pygame.display.update()
