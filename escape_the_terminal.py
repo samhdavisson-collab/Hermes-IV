@@ -234,6 +234,7 @@ solved1, solved2, solved3, solved4 = False, False, False, False
 
 #print(seq1)
 
+
 text = ["01/01 08:00: Successful launch", "01/02 08:00: Food days remaining: 30,", "             all systems correct",
         "01/02 08:00: Food days remaining: 29, ", "             all systems correct",
         "01/02 08:00: Food days remaining: 28, ", "             all systems correct",
@@ -273,7 +274,7 @@ pygame.display.set_caption("Hermes IV: Main Terminal")
 stopped = False
 lost = 0
 
-#print(seq1, seq2, seq3, seq4)
+print(seq1, seq2, seq3, seq4)
 
 while not stopped:
     screen.fill("black")
@@ -363,8 +364,9 @@ while not stopped:
                             text.append(t)
                             t = ""
                 text.append(t)
-            elif mytext[4:len(mytext)] in directories:
-                text.append("cat: " + mytext[4:len(mytext)] + ": Is a folder")
+            elif directories:
+                if mytext[4:len(mytext)] in directories:
+                    text.append("cat: " + mytext[4:len(mytext)] + ": Is a folder")
             else:
                 text.append("cat: " + mytext[4:len(mytext)] + ": No such file or folder")
         elif mytext == "ls":
@@ -708,9 +710,21 @@ else:
         screen.blit(shipoff, shipoffrect)
         clock.tick(120)
         pygame.display.update()
-    for i in range(620 * 10):
+    for i in range(620 * 2):
         screen.blit(bg, (0, 0))
         shiprect.midbottom = (400, 620 - 5 * (i * i) / 3000)
         screen.blit(ship, shiprect)
         clock.tick(120)
+        pygame.display.update()
+    bg = pygame.transform.scale_by(pygame.image.load("proxima_centauri.jpg"), 1)
+    cockpit = pygame.transform.scale_by(pygame.image.load("cockpit.png").convert_alpha(), 1)
+    for i in range(300):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+        starrect = bg.get_rect(center=(400, 310))
+        screen.blit(bg, starrect)
+        screen.blit(cockpit, cockpit.get_rect(center=(400, 310)))
+        bg = pygame.transform.smoothscale_by(bg, 1 + i / 70000)
         pygame.display.update()
